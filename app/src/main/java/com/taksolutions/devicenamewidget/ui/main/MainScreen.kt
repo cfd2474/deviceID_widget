@@ -1,4 +1,4 @@
-package com.example.devicenamewidget.ui.main
+package com.taksolutions.devicenamewidget.ui.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
@@ -9,8 +9,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.NavKey
-import com.example.devicenamewidget.data.DefaultDataRepository
-import com.example.devicenamewidget.theme.DeviceNameWidgetTheme
+import com.taksolutions.devicenamewidget.data.DefaultDataRepository
+import com.taksolutions.devicenamewidget.theme.DeviceNameWidgetTheme
 
 @Composable
 fun MainScreen(

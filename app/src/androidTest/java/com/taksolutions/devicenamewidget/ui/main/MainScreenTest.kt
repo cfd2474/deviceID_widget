@@ -1,4 +1,4 @@
-package com.example.devicenamewidget.ui.main
+package com.taksolutions.devicenamewidget.ui.main
 
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -7,7 +7,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-/** UI tests for [com.example.devicenamewidget.ui.main.MainScreen]. */
+/** UI tests for [com.taksolutions.devicenamewidget.ui.main.MainScreen]. */
 class MainScreenTest {
 
   @get:Rule val composeTestRule = createAndroidComposeRule<ComponentActivity>()

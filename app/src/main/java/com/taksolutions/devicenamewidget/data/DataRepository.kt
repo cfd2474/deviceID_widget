@@ -1,4 +1,4 @@
-package com.example.devicenamewidget.data
+package com.taksolutions.devicenamewidget.data
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

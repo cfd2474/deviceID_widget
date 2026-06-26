@@ -1,4 +1,4 @@
-package com.example.devicenamewidget
+package com.taksolutions.devicenamewidget
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider

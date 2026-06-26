@@ -1,4 +1,4 @@
-package com.example.devicenamewidget.theme
+package com.taksolutions.devicenamewidget.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

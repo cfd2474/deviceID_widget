@@ -1,6 +1,6 @@
-package com.example.devicenamewidget.ui.main
+package com.taksolutions.devicenamewidget.ui.main
 
-import com.example.devicenamewidget.data.DataRepository
+import com.taksolutions.devicenamewidget.data.DataRepository
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first

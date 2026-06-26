@@ -8,10 +8,10 @@ plugins {
 }
 
 android {
-    namespace = "com.example.devicenamewidget"
+    namespace = "com.taksolutions.devicenamewidget"
     compileSdk = 36
     defaultConfig {
-        applicationId = "com.example.devicenamewidget"
+        applicationId = "com.taksolutions.devicenamewidget"
         minSdk = 26
         targetSdk = 35
         versionCode = 2

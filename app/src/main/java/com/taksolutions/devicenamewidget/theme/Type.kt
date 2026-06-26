@@ -1,4 +1,4 @@
-package com.example.devicenamewidget.theme
+package com.taksolutions.devicenamewidget.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

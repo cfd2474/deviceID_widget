@@ -1,9 +1,9 @@
-package com.example.devicenamewidget.ui.main
+package com.taksolutions.devicenamewidget.ui.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.devicenamewidget.data.DataRepository
-import com.example.devicenamewidget.ui.main.MainScreenUiState.Success
+import com.taksolutions.devicenamewidget.data.DataRepository
+import com.taksolutions.devicenamewidget.ui.main.MainScreenUiState.Success
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
