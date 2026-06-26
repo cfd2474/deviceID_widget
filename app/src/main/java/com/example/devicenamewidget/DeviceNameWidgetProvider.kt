@@ -4,7 +4,9 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.os.Build
+import android.os.Bundle
 import android.provider.Settings
+import android.util.TypedValue
 import android.widget.RemoteViews
 
 class DeviceNameWidgetProvider : AppWidgetProvider() {
@@ -23,8 +25,19 @@ class DeviceNameWidgetProvider : AppWidgetProvider() {
 
         // Iterate through all widgets currently added to the homescreen
         for (appWidgetId in appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId)
+            val options = appWidgetManager.getAppWidgetOptions(appWidgetId)
+            updateAppWidget(context, appWidgetManager, appWidgetId, options)
         }
+    }
+
+    override fun onAppWidgetOptionsChanged(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetId: Int,
+        newOptions: Bundle
+    ) {
+        super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions)
+        updateAppWidget(context, appWidgetManager, appWidgetId, newOptions)
     }
 
     override fun onEnabled(context: Context) {
@@ -44,7 +57,8 @@ class DeviceNameWidgetProvider : AppWidgetProvider() {
     private fun updateAppWidget(
         context: Context,
         appWidgetManager: AppWidgetManager,
-        appWidgetId: Int
+        appWidgetId: Int,
+        options: Bundle? = null
     ) {
         // Retrieve the device name
         var deviceName = Settings.Global.getString(context.contentResolver, Settings.Global.DEVICE_NAME)
@@ -62,6 +76,20 @@ class DeviceNameWidgetProvider : AppWidgetProvider() {
         views.setTextViewText(R.id.widget_text, deviceName)
         views.setTextColor(R.id.widget_text, textColor)
         views.setInt(R.id.widget_layout, "setBackgroundColor", bgColor)
+
+        // Calculate text size based on widget dimensions
+        val opts = options ?: appWidgetManager.getAppWidgetOptions(appWidgetId)
+        val minWidth = opts.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH, 110)
+        val maxHeight = opts.getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT, 40)
+        
+        // Very basic calculation: fit text width-wise or height-wise
+        // 1 char is roughly 0.6x width of height
+        val charCount = deviceName.length.coerceAtLeast(1)
+        val maxFontSizeByHeight = maxHeight * 0.7f
+        val maxFontSizeByWidth = (minWidth / charCount.toFloat()) * 1.5f
+        
+        val targetTextSize = maxFontSizeByHeight.coerceAtMost(maxFontSizeByWidth).coerceIn(12f, 60f)
+        views.setTextViewTextSize(R.id.widget_text, TypedValue.COMPLEX_UNIT_DIP, targetTextSize)
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views)
